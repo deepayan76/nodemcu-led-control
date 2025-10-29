@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NODE MCU LED Control</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <main class="content">
+            <h1>NODE MCU LED Control</h1>
+            <p class="meta">Control your LED lights over Wi‑Fi with a simple interface.</p>
+
+            <section style="margin-top:18px;">
+                <h2>Live Status</h2>
+                <div style="display:flex;align-items:center;gap:12px;">
+                    <div class="status">
+                        <span class="dot" id="status-dot"></span>
+                        <span id="status-text" class="meta">Disconnected</span>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-top:18px;">
+                <h2>Controls</h2>
+                <div class="controls" role="group" aria-label="LED controls">
+                    <button id="btn-on">ON</button>
+                    <button id="btn-off" class="secondary">OFF</button>
+                </div>
+            </section>
+
+            <footer class="footer">Made for NODE MCU • Local network control</footer>
+        </main>
+
+        <aside class="card">
+            <h2>Device</h2>
+            <p class="meta">Select the device IP and toggle the LED from here.</p>
+
+            <div style="margin-top:12px;">
+                <label class="meta" for="device-ip">Device IP</label>
+                <input id="device-ip" type="text" placeholder="192.168.1.50" style="width:100%;margin-top:8px;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:#e8eef8;">
+            </div>
+
+            <div style="margin-top:14px;" class="meta">
+                Firmware: <strong style="color:#fff;">esp8266</strong><br>
+                Last seen: <span id="last-seen">—</span>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
