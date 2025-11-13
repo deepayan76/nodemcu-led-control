@@ -143,7 +143,7 @@ p{
     outline-offset: 2px;
 }
 
-/* make any button with .active use the same glow as the primary "ON" */
+/* ACTIVE BUTTON GLOW — FIXED */
 .controls button.active,
 .controls button.active.secondary{
     background: linear-gradient(90deg, var(--accent), var(--accent-2));
@@ -154,9 +154,10 @@ p{
         0 10px 28px rgba(124,92,255,0.16),
         0 4px 14px rgba(0,0,0,0.35);
     transition: transform .12s ease, box-shadow .18s ease, opacity .12s ease;
+    animation: button-pulse 900ms ease-in-out;
 }
 
-/* optional subtle pulse while active (short animation) */
+/* pulse animation */
 @keyframes button-pulse {
     0% { box-shadow:
         0 12px 32px rgba(93,178,255,0.08),
@@ -168,8 +169,14 @@ p{
         0 12px 32px rgba(93,178,255,0.08),
         0 6px 20px rgba(124,92,255,0.12); }
 }
-.controls button.active {
-    animation: button-pulse 900ms ease-in-out;
+
+/* FIX: Ensure inactive buttons NEVER glow */
+#btn-on:not(.active),
+#btn-off:not(.active){
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    color: #e6f0ff !important;
 }
 
 /* small utility */
